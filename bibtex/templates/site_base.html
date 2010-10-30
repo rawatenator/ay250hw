@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Journal 2.0 | {% block head_title %}{% endblock %}</title>
+        {% block head_extra %}{% endblock %}
+    </head>
+    
+    <body>
+        <div id="logo" style="background-color:lime; position:relative; width:50%">
+            Bibtex Online- Rishi Rawat
+		<br>
+			<a href="/">Collections</a>
+			<a href="/query">query</a>
+			<a href="/upload">upload</a>
+		<br>
+		<br>
+        </div>
+		<div style="background-color:yellow; position:absolute; height:100%; width:50%">
+        {% block body %}{% endblock %}
+		</div>
+</body>
+
+</html>

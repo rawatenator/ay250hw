@@ -1,0 +1,39 @@
+filename				Dominant Frequencies
+C4A4.aif 				260 440 
+
+1.aif 				 freq: 260 power: 40
+1.aif 				 freq: 295 power: 38
+1.aif 				 freq: 392 power: 41
+1.aif 				 freq: 523 power: 38
+
+2.aif 				 freq: 351 power: 42
+2.aif 				 freq: 520 power: 38
+2.aif 				 freq: 300 power: 38.9
+
+3.aif 				 freq: 437 power: 44
+
+4.aif 				 freq: 260 power: 46
+
+5.aif 				 freq: 293 power: 50
+
+6.aif 				 freq: 524 power: 40
+
+7.aif 				 freq: 590 power: 40
+
+8.aif 				 freq: 355 power: 40
+8.aif 				 freq: 700 power: 40
+
+9.aif 				 freq: 390 power: 43
+9.aif 				 freq: 585 power: 41
+
+10.aif 				 freq: 391 power: 50
+10.aif 				 freq: 260 power: 40
+
+11.aif 				 freq: 250 power: 39
+11.aif 				 freq: 990 power: 39
+
+12.aif 				 freq: 258 power: 43
+12.aif 				 freq: 391 power: 43
+
+
+

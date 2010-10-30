@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf540
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww12800\viewh12580\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 HW 3 by RISHI RAWAT\
+\
+
+\b PROBLEM 1:
+\b0 \
+All of the relevant files are in the folder called "problem1." I was the server. James Long was the client. James first read a png into a numpy array, made it a list and sent that over the net. My computer processed the list into an array, performed a manipulation and returned another list to James.\
+\
+The three methods of image manipulation via PIL were rotation, flipping top/bottom, and flipping left/right. The server saved original and modified copies of the images.\
+\
+The methods have docstrings, and are ready to manipulate images in image formats that are compatible with PIL.\
+\
+The images sent by the client(James) were saved as starting_Image 0,1,2 and the final images were saved as final_Image 0,1,2 and are in the folder.\
+\
+\
+A transcript from my terminal from the last server/client communication: \
+\
+\
+netblock-68-183-197-83:~ rishi$ python /python\\ files/Hw3/week3problem1-server.py \
+XMLRPC Server is starting at: 68.183.197.83 2000\
+c-98-207-62-205.hsd1.ca.comcast.net - - [25/Sep/2010 20:54:47] "POST /RPC2 HTTP/1.0" 200 -\
+c-98-207-62-205.hsd1.ca.comcast.net - - [25/Sep/2010 21:08:01] "POST /RPC2 HTTP/1.0" 200 -\
+\
+\
+\
+\
+\
+
+\b Problem2:\
+
+\b0 \
+All of the relevant files are in the folder called "problem2." \
+The soundfigures folder contains the data produced for the assignment.\
+The sound_files folder contains the audio files from bspace. These can be used to reproduce the results.\
+\
+The python code is called Hw3problem2.py . \
+\
+When run, the program asks for a filename corresponding to an .aif file in the sound_files folder. \
+\
+Then, the program:\
+-reads the data\
+-converts the hexcode to 16bit int\
+-splits the data to account for channels\
+-plots the soundwave amplitude v. time\
+-does the FFT\
+-prepares the power spectrum and reduces noise\
+-plots the spectrum\
+-Saves a picture of the spectrum in the soundfigures folder\
+-analyzes the graph and prints frequencies that are major contributors to the power spectrum\
+-asks for user to enter frequencies and powers, which will be saved in the soundfigures folder\
+\
+-the file called: "soundnotes.txt" in soundfigures contains all of the major frequencies (and their respective powers) that I was able to detect. \
+\
+I have noted sources that helped me complete the assignment in the .py file comments}

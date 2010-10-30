@@ -1,0 +1,159 @@
+Script started on Wed Oct 20 13:09:23 2010
+bash-3.2$ man[K[K[K%man script
+bash: fg: %man: no such job
+bash-3.2$ man script
+7[?47h[?1h=[24;1H[KSCRIPT(1)                 BSD General Commands Manual                SCRIPT(1)
+
+[1mNAME[m
+     [1mscript[m -- make typescript of terminal session
+
+[1mSYNOPSIS[m
+     [1mscript[m [[1m-akq[m] [[1m-t[m [4mtime[m] [[4mfile[m [[4mcommand[m [4m...[m]]
+
+[1mDESCRIPTION[m
+     The [1mscript[m utility makes a typescript of everything printed on your ter-
+     minal.  It is useful for students who need a hardcopy record of an inter-
+     active session as proof of an assignment, as the typescript file can be
+     printed out later with lpr(1).
+
+     If the argument [4mfile[m is given, [1mscript[m saves all dialogue in [4mfile[m.  If no
+     file name is given, the typescript is saved in the file [4mtypescript[m.
+
+     If the argument [4mcommand[m is given, [1mscript[m will run the specified command
+     with an optional argument vector instead of an interactive shell.
+
+     The following options are available:
+
+     [1m-a[m      Append the output to [4mfile[m or [4mtypescript[m, retaining the prior con-
+[24;1H[K:[24;1H[24;1H[K             tents.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     [1m-k[m      Log keys sent to program as well as output.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     [1m-q[m      Run in quiet mode, omit the start and stop status messages.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     [1m-t[m [4mtime[m
+[24;1H[K:[24;1H[24;1H[K             Specify time interval between flushing script output file.  A
+[24;1H[K:[24;1H[24;1H[K             value of 0 causes [1mscript[m to flush for every character I/O event.
+[24;1H[K:[24;1H[24;1H[K             The default interval is 30 seconds.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     The script ends when the forked shell (or command) exits (a [4mcontrol-D[m to
+[24;1H[K:[24;1H[24;1H[K     exit the Bourne shell (sh(1)), and [4mexit[m, [4mlogout[m or [4mcontrol-D[m (if
+[24;1H[K:[24;1H[24;1H[K     [4mignoreeof[m is not set) for the C-[24;1H[24;1H[K     [4mignoreeof[m is not set) for the C-shell, csh(1)).
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     Certain interactive commands, such as vi(1), create garbage in the type-
+[24;1H[K:[24;1H[24;1H[K     script file.  The [1mscript[m utility works best with commands that do not
+[24;1H[K:[24;1H[24;1H[K     manipulate the screen.  The results are meant to emulate a hardcopy ter-
+[24;1H[K:[24;1H[24;1H[K     minal, not an addressable one.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K[1mENVIRONMENT[m
+[24;1H[K:[24;1H[24;1H[K     The following environment variable is utilized by [1mscript[m:
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     SHELL  If the variable SHELL exists, the shell forked by [1mscript[m will be
+[24;1H[K:[24;1H[24;1H[K            that shell.  If SHELL is not set, the Bourne shell is assumed.
+[24;1H[K:[24;1H[24;1H[K            (Most shells set this variable automatically).
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K[1mSEE[m [1mALSO[m
+[24;1H[K:[24;1H[24;1H[K     csh(1) (for the [4mhist[24;1H[24;1H[K[1mHISTORY[m
+[24;1H[K:[24;1H[24;1H[K     The [1mscript[m command appeared in 3.0BSD.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K[1mBUGS[m
+[24;1H[K:[24;1H[24;1H[K     The [1mscript[m utility places [1meverything[m in the log file, including linefeeds
+[24;1H[K:[24;1H[24;1H[K     and backspaces.  This is not what the naive user expects.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     It is not possible to specify a command without also naming the script
+[24;1H[K:[24;1H[24;1H[K     file because of argument parsing compatibility issues.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     When running in [1m-k[m mode, echo cancelling is far from ideal.  The slave
+[24;1H[K:[24;1H[24;1H[K     terminal mode is checked for ECHO mode to check when to avoid manual echo
+[24;1H[K:[24;1H[24;1H[K     logging.  This does not work when in a raw mode where the program being
+[24;1H[K:[24;1H[24;1H[K     run is doing manual echo.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[KBSD                            January 22, 2004                            BSD
+[24;1H[K:[24;1H[24;1H[K[24;1H[K[7m(END) [m[24;1H[24;1H[K[24;1H[K[7m(END) [m[24;1H[24;1H[K[24;1H[K[7m(END) [m[24;1H[24;1H[K[24;1H[K[7m(END) [m[24;1H[24;1H[K[24;1H[K[7m(END) [m[24;1H[24;1H[K[24;1H[K[7m(END) [m[24;1H[24;1H[K[24;1H[K[7m(END) [m[24;1H[24;1H[K[24;1H[K[7m(END) [m[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     The following environment variable is utilized by [1mscript[m:
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM[1mENVIRONMENT[m
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     minal, not an addressable one.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     manipulate the screen.  The results are meant to emulate a hardcopy ter-
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     script file.  The [1mscript[m utility works best with commands that do not
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     Certain interactive commands, such as vi(1), create garbage in the type-
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     [4mignoreeof[m is not set) for the C-shell, csh(1)).
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     exit the Bourne shell (sh(1)), and [4mexit[m, [4mlogout[m or [4mcontrol-D[m (if
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     The script ends when the forked shell (or command) exits (a [4mcontrol-D[m to
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM             Th[24;1H[K [KESCESC[KOO[KAA[24;1H[HM             The default interval is 30 seconds.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM             value of 0 causes [1mscript[m to flush for every character I/O event.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM             Specify time interval between flushing script output file.  A
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     [1m-t[m [4mtime[m
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     [1m-q[m      Run in quiet mode, omit the start and stop status messages.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     [1m-k[m      Log keys sent to program as well as output.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM             tents.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     [1m-a[m      Append the output to [4mfile[m or [4mtypescript[m, retaining the prior con-
+[24;1H[:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     The following options are available:
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     with an optional argument vector instead of an interactive shell.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     If the argument [4mcommand[m is given, [1mscript[m will run the specified command
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     file name is given, the typescript is saved in the file [4mtypescript[m.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     If the argument [4mfile[m is given, [1mscript[m saves all dialogue in [4mfile[m.  If no
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     printed out later with lpr(1).
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     active session as proof of an assignment, as the typescript file can be
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     minal.  It is useful for students who need a hardcopy record of an inter-
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     The [1mscript[m utility makes a typescript of everything printed on your ter-
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM[1mDESCRIPTION[m
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     [1mscript[m [[1m-akq[m] [[1m-t[m [4mtime[m] [[4mfile[m [[4mcommand[m [4m...[m]]
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM[1mSYNOPSIS[m
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM     [1mscript[m -- make typescript of terminal session
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM[1mNAME[m
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HM
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HMSCRIPT(1)                 BSD General Commands Manual                SCRIPT(1)
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KBB[24;1H[24;1H[K             tents.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[HMSCRIPT(1)                 BSD General Commands Manual                SCRIPT(1)
+[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[K [KESCESC[KOO[KAA[24;1H[24;1H[K:[24;1H[24;1H[K             tents.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     [1m-k[m      Log keys sent to program as well as output.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     [1m-q[m      Run in quiet mode, omit the start and stop status messages.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     [1m-t[m [4mtime[m
+[24;1H[K:[24;1H[24;1H[K             Specify time interval between flushing script output file.  A
+[24;1H[K:[24;1H[K [KESCESC[KOO[KBB[24;1H[24;1H[K             value of 0 causes [1mscript[m to flush for every character I/O event.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KBB[24;1H[24;1H[K             The default interval is 30 seconds.
+[24;1H[K:[24;1H[K [KESCESC[KOO[KBB[24;1H[24;1H[K
+[24;1H[K:[24;1H[K [KESCESC[KOO[KBB[24;1H[24;1H[K     The script ends when the forked shell (or command) exits (a [4mcontrol-D[m to
+[24;1H[K:[24;1H[24;1H[K     exit the Bourne shell (sh(1)), and [4mexit[m, [4mlogout[m or [4mcontrol-D[m (if
+[24;1H[K:[24;1H[24;1H[K     [4mignoreeof[m is not set) for the C-shell, csh(1)).
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K     Certain interactive commands, such as vi(1), create garbage in the type-
+[24;1H[K:[24;1H[24;1H[K     script file.  The [1mscript[m utility works best with commands that do not
+[24;1H[K:[24;1H[K [KESCESC[KESCESC[24;1H[K:[24;1H[24;1H[K     manipulate the screen.  The results are meant to emulate a hardcopy ter-
+[24;1H[K:[24;1H[24;1H[K     minal, not an addressable one.
+[24;1H[K:[24;1H[24;1H[K
+[24;1H[K:[24;1H[24;1H[K[1mENVIRONMENT[m
+[24;1H[K:[24;1H[K[?1l>[2J[?47l8bash-3.2$ lpr
+
+d
+
+fd;lfks;flksd
+;k
+;kdfs;lfksd
+
+
+
+8bash-3.2$ lpr
+
+d
+
+fd;lfks;flksd
+;k
+;kdfs;lfksd
+
+
+

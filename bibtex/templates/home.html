@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+
+{% block head_title %}All Collections{% endblock %}
+
+{% block body %}
+    <h1>Browse our collections</h1>
+    
+    <ul>
+        {% for each in collections %}
+            <li>
+     
+                    {{ each.name }}
+               
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

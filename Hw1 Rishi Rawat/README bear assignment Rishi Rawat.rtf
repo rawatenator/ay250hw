@@ -1,0 +1,191 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf540
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red4\green26\blue255;}
+\margl1440\margr1440\vieww18240\viewh12040\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Readme: HW1, Bear Population, by Rishi Rawat\
+\
+I	General Notes with respect to the assignment\
+II	Concerns\
+III	Answers to questions\
+\
+________________________________\
+
+\b I\
+
+\b0 \
+\pard\pardeftab720\sa240\ql\qnatural
+\cf0 \expnd0\expndtw0\kerning0
+1.) Bears live for an average of 35 years (1 sigma = 5 years)\kerning1\expnd0\expndtw0 \
+\expnd0\expndtw0\kerning0
+2.) Bears procreate starting at 5 years old until death (assume no gestation period). They produce no more than 1 cub every five years.\kerning1\expnd0\expndtw0 \
+\expnd0\expndtw0\kerning0
+3.)  No Bear can procreate with another Bear that has the same mother and father and must procreate with other Bears that are within 10 years of their own age and of the opposite sex.\'a0\kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\ql\qnatural
+\cf0 \expnd0\expndtw0\kerning0
+4.) Male and Female cubs are equality likely: P(male) = 1 - P(female) = 0.5\kerning1\expnd0\expndtw0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+\cf0 \expnd0\expndtw0\kerning0
+5.) No new cubs can be named the same as Bears that are currently alive in the population\uc0\u8232 
+\b \kerning1\expnd0\expndtw0 \
+\
+\
+My Approach:\
+\pard\pardeftab720\sa240\ql\qnatural
+
+\b0 \cf0 \expnd0\expndtw0\kerning0
+I made a bear class. Newly created instances have a name, a gender(determined by a boolean value, False = Female), a boolean value for life(True means the bear is alive), and can store information about their "mother" and "father"\
+\
+1.)The lifespan of the bear is established upon its birth; the init method uses numpy.random.normal for a normal distribution\
+\
+\
+2-3.) As bears are created, they are stored in the bear.bearlist. I used an iterative process, "mating()," to judge whether or not bears are prepared to reproduce. \
+	-beforerep represents the years a bear needs to wait before reproducing (when beforerep = 0, bears are eligible to mate)\
+	-to mate, each eligible male is given a chance to mate with a random eligible female. If they satisfy the conditions in 3.) then the mother and father get	__add__'ed, and the beforerep variable gets updated, preventing them from mating again for 5 yrs\
+\
+\
+4.) The new bear's gender is determined by the result of numpy.random.binomial, and is set to True(male) or False(Female) via an if statement\
+\
+\
+5.) to keep names unique, bears are named by their number(of how many bears have ever lived) and sex(True/false); 34False is a Female bear who is the 34th to have been seen in the population\
+\
+\
+\
+\
+------------------------------------------------------------------\
+II. 
+\b \kerning1\expnd0\expndtw0 Concerns:
+\b0 \expnd0\expndtw0\kerning0
+\
+- I was not sure how to design the mating function. In my program, each male gets a chance to mate, but if he chooses the wrong mate, he sits out for 1 year. I was not sure if males that try to mate, but fail, should be given chances until either all eligible males or females have mated. Such a function could be facilitated by constantly updating  while loop that is active.\
+- naming: naming bears by number/(true/false) met the requirement, although it used no web service. I could not think of a way to incorporate it.\
+------------------------------------------------------------------\
+III 
+\b \kerning1\expnd0\expndtw0 Questions:
+\b0 \
+\pard\pardeftab720\ql\qnatural
+
+\b \cf0 \expnd0\expndtw0\kerning0
+A.
+\b0 \expnd0\expndtw0\kerning0
+ On average, how many Bears are born in the first 100 years? How many Bears are alive at the end of 150 years?\
+\
+--> 				#I defined a function that looks at the average number of births over  a certain sample size. The function is avgborn(numberofyears,sample), where numberofyears is the number of years the population is kept and sample is the sample size\
+\
+   	 \cf2 \expnd0\expndtw0\kerning0
+#>>> avgborn(100,10)\
+    	#1212.8\cf0 \expnd0\expndtw0\kerning0
+\
+\
+	Thus, on avg 1213 bears are born with n = 10\
+\
+\
+-->A modification of the program gives the number of bears alive at the end of a number of years. Due to the ammount of time it was taking my computer to get through 150 yrs, I used a sample = 4\
+\
+      	\cf2 \expnd0\expndtw0\kerning0
+>>> avgalive(150,4)\
+    	66060.5\
+\pard\pardeftab720\ql\qnatural
+\cf0 \expnd0\expndtw0\kerning0
+\
+	So, approx 66000 bears are alive \
+\kerning1\expnd0\expndtw0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\ql\qnatural
+
+\b \cf0 \expnd0\expndtw0\kerning0
+B. 
+\b0 \expnd0\expndtw0\kerning0
+What must be the minimum value of 
+\i \expnd0\expndtw0\kerning0
+P(male)
+\i0 \expnd0\expndtw0\kerning0
+ such that the population does not die out in 150 years?\
+\
+\
+	#The function avgends takes the number of years a population needs to live, a given\
+	#number of samples(over which to assess a probability) and the probability of a cub being a 	male it will count the number of times the population survives for the number of years. if the 	population survives atleast 90% of the time, it will let the use know otherwise, it will incrementally adjust the probability until the population survives atleast 90% of the 	time. Finally it will return this probability\
+\
+		\
+		\cf2 \expnd0\expndtw0\kerning0
+##>>> avgends(150,15,.2)\
+		##with a 0.340000 probability for males, there's atleast a 10 percent chance the pop will make it 150yrs, sample size = 15\
+\
+\pard\pardeftab720\ql\qnatural
+\cf0 \expnd0\expndtw0\kerning0
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\ql\qnatural
+
+\b \cf0 \expnd0\expndtw0\kerning0
+C. 
+\b0 \expnd0\expndtw0\kerning0
+Build and use a plotting routine to show the genealogy tree of a given Bear. Show all Bears at the same generation and earlier who are directly related.\
+\uc0\u8232 \kerning1\expnd0\expndtw0 \
+				#I was able to accomplish this ONLY in ipython. I got errors in the normal python IDLE. To reproduce my result, type the following into terminal for mac. I included a screenshot of my computer after I graphed the lineage of a specific bear\
+\
+\pard\pardeftab720\ql\qnatural
+
+\i \cf2 ipython -pylab\cf0 \
+\cf2 \
+%run <bearhw.py>\
+\
+\pard\pardeftab720\ql\qnatural
+
+\i0 \cf0 \
+\pard\pardeftab720\ql\qnatural
+
+\i \cf2 start() 	
+\i0 \cf0 			#initiates the 3 starting bears\
+
+\i \cf2 \
+twfive() 
+\i0 \cf0 			# simulates 25 years of life\
+
+\i \cf2 \
+hundfif() 	
+\i0 \cf0 		# simulates another 150 years of life\
+
+\i \cf2 \
+bear.bearlist	
+\i0 \cf0 		# shows a list of bears\
+\pard\pardeftab720\sa240\ql\qnatural
+\cf0 				#choose an integer corresponding to a bear on the list, such as 14 for bear.bearlist[14]\
+				# to graph the lineage of this bear, use: graph_indiv_history(integer) e.g.:\
+\pard\pardeftab720\sa240\ql\qnatural
+
+\i \cf2 graph_indiv_history(14)
+\i0 \cf0 	# this command will first print the relatives of bear 14, then will use networkx to graph bear 14 will have two lines exiting its node, corresponding to its mother and father. the mother and father will each also have lines exiting corresponding to their parents\
+\
+				# To trace out an entire family tree for all bears, use graphing_entire_history():\
+
+\i \cf2 graphing_entire_history()
+\i0 \cf0  	# However it is time consuming and very messy; there are lots of nodes making it too hard to read\
+\
+\'a0\
+\'a0\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+}
