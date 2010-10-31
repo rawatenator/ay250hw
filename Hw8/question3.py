@@ -1,4 +1,5 @@
 import os
+import sys
 
 # Download the latest polling data 
 # from http://electoral-vote.com/evp2010/Senate/ 
@@ -12,10 +13,16 @@ import os
 # input using argparse.  
 
 #Allow the user to input new polls into 
-# the database without requiring a speciﬁc format.  
+# the database without requiring a specific format  
 
 #Include an option which shows a plot of the updated polls for a given 
 # state.  
 
-#Include the necessary checks to make sure the user’s 
+#Include the necessary checks to make sure the user's 
 # path is set correctly to import the code from Week 5. 
+
+print os.pathsep
+
+sys.path.append('..')
+
+print sys.path
