@@ -7,7 +7,7 @@ import sys
   
 # Without moving the base code from your Week 5 (databases) 
 # folder*, load the necessary functions from that code into a new 
-# module
+# module.
 
 #which parses command-line 
 # input using argparse.  
@@ -21,8 +21,11 @@ import sys
 #Include the necessary checks to make sure the user's 
 # path is set correctly to import the code from Week 5. 
 
-print os.pathsep
 
-sys.path.append('..')
+relative_path_to_module = os.path.join(os.path.dirname(__file__), '..')
+sys.path.append(os.path.abspath(relative_path_to_module))
 
 print sys.path
+
+from Hw5.Hw5 import *
+print 1
