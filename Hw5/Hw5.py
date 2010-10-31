@@ -10,7 +10,7 @@ import webbrowser
 
 path = os.path.abspath(os.path.dirname(__file__))
 
-os.chdir(path)
+
 
 
 
@@ -23,10 +23,10 @@ def q0():
 	#long version: CALIFORNIA, whereas the name data only list the abbreviation. I downloaded a list of
 	#full names and abbreviations and read the data into a table to simplify later joins.'''
 	# MAKE A TABLE TO CONVERT BETWEEN 2 LETTER ABBREVIATIONS AND FULL STATE DESCRIPTIONS
-	staterecarray = csv2rec("state2letters.txt",delimiter='\t')
+	staterecarray = csv2rec(path+"/state2letters.txt",delimiter='\t')
 	
 	sql_cmd = '''CREATE TABLE  statetable(fullname TEXT, abrev text)'''
-	connection = sqlite3.connect("poll.db")
+	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 	cursor.execute(sql_cmd)
 	
@@ -50,7 +50,7 @@ def q1(filename=path+"/senate_polls.csv"):
 	senate_recarray = csv2rec(filename)
 
 	#make a database/connect, poll_db
-	connection = sqlite3.connect("poll.db")
+	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 
 	#make table, 'rankings'
@@ -90,9 +90,9 @@ def q2():
 	'''#question 2:SIMILAR TO Q1, EXCEPT FROM candidate_names.txt'''
 
 	#read data into recarray
-	candidate_names_recarray = csv2rec("candidate_names.txt")
+	candidate_names_recarray = csv2rec(path+"/candidate_names.txt")
 	#connect to database:
-	connection = sqlite3.connect("poll.db")
+	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 	#make table called: candidate names
 	sql_cmd = "CREATE TABLE  candidate_names(state TEXT, democrat text, republican text, independent text, incumbentparty text )"
@@ -120,13 +120,13 @@ def q3():
 	# and store these data in a table'''
 	name = []
 	picture_path = []
-	listdir = os.listdir('candidates')
+	listdir = os.listdir(path+'/candidates')
 	for each in listdir:
 		name.append( each.split('.')[0] )
 		picture_path.append('candidates/'+ str(each))
 
 	#connect,make table
-	connection = sqlite3.connect("poll.db")
+	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 	sql_cmd = "CREATE TABLE  images(name TEXT,url TEXT)";
 	cursor.execute(sql_cmd)
@@ -168,14 +168,14 @@ def q4():
 	#images(name TEXT,url TEXT);
 	#rankings (id INTEGER PRIMARY KEY AUTOINCREMENT, day INTEGER,len INTEGER, state TEXT, dem INTEGER,rep INTEGER, indep INTEGER, month int,dayofmonth int, poll text);
 	#this function eventually makes a webpage and displays the candidates newest poll data, and thier photographs, as well as other data'''
-	connection = sqlite3.connect("poll.db")
+	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 	
 	#get stateinput from user
 	state = raw_input('enter the 2digit abbreviation for a state: ').upper()
 
 	#get variable: incumbent
-	sql_cmd = "SELECT candidate_names.incumbentparty from candidate_names where candidate_names.state = 'DE' "
+	sql_cmd = "SELECT candidate_names.incumbentparty from candidate_names where candidate_names.state = '%s' " % state
 	cursor.execute(sql_cmd)
 	dbinfo = cursor.fetchone()
 	incumbent = ''
@@ -241,7 +241,7 @@ def q4():
 		else:
 			indstatement = '	<tr> <td> INDEPENDENT </td> <td> %s </td> <td> %s </td>  <td> <img src="%s"></img> </td> </tr>'%(ind[0],ind[1],ind[4])
 		
-		output = open('webinfo.html',"w")
+		output = open(path + '/webinfo.html',"w")
 		output.write('''
 		<h1 name='state'>%s</h1>
 		<h2 name='incumbentstatus'>%s</h2>
@@ -255,7 +255,7 @@ def q4():
 		poll taken on %i-%i-2010
 		</table>'''% (state, incumbent_statement, dem[0],dem[1],dem[4], rep[0],rep[1],rep[4],indstatement, dem[2],dem[3]))
 		output.close()
-		webbrowser.open_new(os.path.abspath('webinfo.html'))
+		webbrowser.open_new(path+ '/webinfo.html')
 		
 	generate_web_page()
 
@@ -277,7 +277,7 @@ def q5():
 	#poll score is less than the rep's or the ind's, then the democrat is said to have lost that state, democrat losses +=1
 	'''
 	#connect
-	connection = sqlite3.connect('poll.db')
+	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 
 	#make a list of the states
@@ -320,7 +320,7 @@ def q6():
 	'''#Q6: PLOTS polling data for a given state'''
 	#get STATE; connect to db
 	state = raw_input('enter a 2digit state code to see a plot:').upper()
-	connection = sqlite3.connect('poll.db')
+	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 	
 	#query db, get names, rankings for Rep, Dem, Ind candidates
@@ -361,7 +361,7 @@ def enterData(day, dem, rep, month, dayofmonth, len=0, indep=0, fullstate = 'Cal
 	# enterData(day, dem, rep, month, dayofmonth, len=0, indep=0, fullstate = 'California',poll='unknown')
 	#all of the  parameters are ints except poll and fullstate, which are strings
 	# do not enter abreviations for fullstate'''
-	connection = sqlite3.connect('poll.db')
+	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 	cmd = 'INSERT INTO rankings (day, len, dem, rep, indep, month, dayofmonth, state,poll) VALUES (%i, %i, %i, %i, %i,%i, %i, "%s","%s")'%(day, len, dem, rep, indep, month, dayofmonth, fullstate.upper(),poll.upper()) 
 	cursor.execute(cmd)

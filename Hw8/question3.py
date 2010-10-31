@@ -7,9 +7,24 @@ sys.path.append(abs_path_to_mod)
 import Hw5.Hw5
 from Hw5.Hw5 import q1 as add_senate_polls_data_to_db
 
-add_senate_polls_data_to_db(os.path.abspath(os.path.join(os.path.dirname(__file__), 'senate_polls_recent.csv')))
 
-#os.chdir(abs_path_to_mod+'/Hw5')
+#these functions initialize the database poll.db(in the hw5 directory), the last function
+#is responsible for getting the new polling data into the database
+
+#Hw5.Hw5.q0()
+#Hw5.Hw5.q2()
+#Hw5.Hw5.q3()
+#add_senate_polls_data_to_db(os.path.abspath(os.path.join(os.path.dirname(__file__), 'senate_polls_recent.csv')))
+
+
+
+
+#to test if the new data is in the database, enable the following function: then enter a statename and see a
+#webpage with the latest polling data
+
+#Hw5.Hw5.q4()
+
+ 
 
 # Download the latest polling data 
 # from http://electoral-vote.com/evp2010/Senate/ 
@@ -19,7 +34,6 @@ add_senate_polls_data_to_db(os.path.abspath(os.path.join(os.path.dirname(__file_
 # Without moving the base code from your Week 5 (databases) 
 # folder*, load the necessary functions from that code into a new 
 # module.
-#-Done. The program does not require the user to be in the same directory as the file for it to work.
 
 #which parses command-line 
 # input using argparse.  
