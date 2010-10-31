@@ -7,6 +7,14 @@ from cStringIO import StringIO
 import webbrowser
 
 
+
+path = os.path.abspath(os.path.dirname(__file__))
+
+os.chdir(path)
+
+
+
+
 #the polls data and the names data that were given both list states. However, the rankings only list the 
 #long version: CALIFORNIA, whereas the name data only list the abbreviation. I downloaded a list of
 #full names and abbreviations and read the data into a table to simplify later joins.
@@ -36,10 +44,10 @@ def q0():
 	
 
 #answer to question 1: import senate polling data to sqlite3
-def q1():
+def q1(filename=path+"/senate_polls.csv"):
 	'''#answer to question 1: import senate polling data to sqlite3'''
 	#make rec array from the polling data
-	senate_recarray = csv2rec("senate_polls.csv")
+	senate_recarray = csv2rec(filename)
 
 	#make a database/connect, poll_db
 	connection = sqlite3.connect("poll.db")
