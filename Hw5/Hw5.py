@@ -40,7 +40,7 @@ def q0():
 def getabrevfromfull(statenamefull):
 	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
-	cmd = 'SELECT statetable.abrev FROM statetable Where statetable.fullname = "%s" ' % statenamefull
+	cmd = 'SELECT statetable.abrev FROM statetable Where statetable.fullname = "%s" ' % statenamefull.upper()
 	cursor.execute(cmd)
 	dbinfo = cursor.fetchone()
 	for entry in dbinfo: abreviation = entry
@@ -168,7 +168,7 @@ def q3():
 #images(name TEXT,url TEXT);
 #rankings (id INTEGER PRIMARY KEY AUTOINCREMENT, day INTEGER,len INTEGER, state TEXT, dem INTEGER,rep INTEGER, indep INTEGER, month int,dayofmonth int, poll text);
 #this function eventually makes a webpage and displays the candidates newest poll data, and thier photographs, as well as other data
-def q4():
+def q4(abreviation):
 	'''# q4: HERE I PERFORM the necessary joins so the three tables are in sync.
 	#to simplify readability, here are the tables and thier columns:
 	#candidate_names(state TEXT, democrat text, republican text, independent text, incumbentparty text );
@@ -179,7 +179,9 @@ def q4():
 	cursor = connection.cursor()
 	
 	#get stateinput from user
-	state = raw_input('enter the 2digit abbreviation for a state: ').upper()
+	#state = raw_input('enter the 2digit abbreviation for a state: ').upper()
+
+	state = abreviation.upper()
 
 	#get variable: incumbent
 	sql_cmd = "SELECT candidate_names.incumbentparty from candidate_names where candidate_names.state = '%s' " % state
@@ -323,10 +325,10 @@ def q5():
 
 
 #Q6: PLOTS polling data for a given state
-def q6():
+def q6(abreviation):
 	'''#Q6: PLOTS polling data for a given state'''
 	#get STATE; connect to db
-	state = raw_input('enter a 2digit state code to see a plot:').upper()
+	state = abreviation.upper()
 	connection = sqlite3.connect(path+"/poll.db")
 	cursor = connection.cursor()
 	
