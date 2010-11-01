@@ -1,0 +1,23 @@
+README HW8 Rishi Rawat
+
+Question3:
+
+In question3.py, I defined an argparse parser object.
+To add data use the keyword: -add and use the appropriate
+tags to add polling data(use -h to see all of the tags available).
+To see a graph of the data, you can use the keyword -graph. Be sure 
+to indicate the full name of a state when using -graph and/or -add.
+When -graph or -add are used, a boolean variable changes to True in
+the code, determining if a sql insert will occur(-add) or if the graph
+program will be called. 
+
+-All of the database functions are stored in a 
+file called Hw5.py in the Hw5 directory. To import the modules, I appended 
+a path to the sys.path corresponding to the parent directory which contains
+folders for my homework assignments(the directory with folders for Hw1, Hw2 etc.).
+Since this path can be used to load modules while question3.py is running, I was able
+to import modules from Hw5/Hw5.py with Hw5.Hw5 . 
+
+
+-for other requirements, please consult question3.py, which should be fairly 
+straightforward to interpret w/comments. 
