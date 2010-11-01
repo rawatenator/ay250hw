@@ -1,0 +1,119 @@
+commit 2cf91752ac757ba981efd0b6d6aba0a38ea11120
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:26:05 2010 -0700
+
+    restart thesis development, dvlop role of privacy
+
+commit 481fd8f2a5212c2442a8fca999408e30faff1489
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:25:43 2010 -0700
+
+    delete first para
+
+commit b919e0757db0ef91d2bb7dd30137c17ca7ca976d
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:25:12 2010 -0700
+
+    establish a sub point about specificity of the people-privacy issue
+
+commit e32422fb175f40e501bc502f238185d58c3bad53
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:21:33 2010 -0700
+
+    establish notes intro
+
+commit 2d8d545a2d7f0c8e64c7ceb0e1b342eab977526a
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:19:51 2010 -0700
+
+    establish thesis ideas
+
+commit ea80283c85a54f80a02f73e5a41385951625d57b
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:19:31 2010 -0700
+
+    establish purpose
+
+commit 8586976ff941116fe464988389778a9b1bc3e32c
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:17:44 2010 -0700
+
+    added the final files from navsci.b.edu
+
+commit c69650956201d0872692dfa19fbff9dfe047d0eb
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:16:17 2010 -0700
+
+    coppied notes from goa site
+
+commit 194660fa9b4829227779be77e3a8f488454af0e5
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:14:30 2010 -0700
+
+    deleted paragraph on color/arrangmenet
+
+commit 40bf27c748e3e8faefb06633aa4b4ec676b51ddc
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:13:36 2010 -0700
+
+    re rwote notes for paper
+
+commit 99e9a22805d09973b4280e89dede5b38cc1c27c3
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:10:40 2010 -0700
+
+    adding more course files
+
+commit 1bcb22c3b0ad98b4cd5c9d2a7bca8a85a04b80d8
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:03:12 2010 -0700
+
+    add ch4
+
+commit 7fcaa11584c1ef1927c10d60df24b8198eacba84
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 01:02:12 2010 -0700
+
+    add lead/man from sep10
+
+commit 1a625d6cb74a7174e63a3a46eaa1c60d66d1092c
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 00:59:38 2010 -0700
+
+    update files
+
+commit 296895e47c3d29e10da7b38b5940c73f9308dbb2
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 00:59:07 2010 -0700
+
+    -add file rigoal
+
+commit ad824fef69091d09b3fe72a85286c517d3fe64fc
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 00:57:40 2010 -0700
+
+    mod read list -add sevenp
+
+commit e771e9379bbc522e287f3beb90e0f30c8af57349
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 00:57:16 2010 -0700
+
+    mod read list -add nea
+
+commit 08700b185a46de46667702bc0c51aa329833b5c2
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 00:56:59 2010 -0700
+
+    mod read list
+
+commit 16d8823930615eb6be69c50d2924c84523f06296
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 00:56:07 2010 -0700
+
+    add ns3 folder
+
+commit 9ae33ddd498dfa17554da9a2fddc22b2ebf7475a
+Author: rawatenator <rawatenator@gmail.com>
+Date:   Mon Nov 1 00:55:01 2010 -0700
+
+    first commit to add files
