@@ -6,7 +6,11 @@ abs_path_to_mod = os.path.abspath(relative_path_to_mod)
 sys.path.append(abs_path_to_mod)
 import Hw5.Hw5
 from Hw5.Hw5 import q1 as add_senate_polls_data_to_db
+import datetime
 
+
+today = datetime.date.today()
+today.year
 
 #these functions initialize the database poll.db(in the hw5 directory), the last function
 #is responsible for getting the new polling data into the database
@@ -24,8 +28,59 @@ from Hw5.Hw5 import q1 as add_senate_polls_data_to_db
 
 #Hw5.Hw5.q4()
 
- 
 
+import argparse
+parser = argparse.ArgumentParser(description='Polldata') 
+
+parser.add_argument('-graph', action='store_true', dest = 'graph_if_true',
+					help='by adding this keywork, a the graph of the state polling #s will be displayed', default = False)					
+parser.add_argument('-add', action='store_true', dest = 'add_if_true',
+					help='by adding this keywork, you can enter data into the database. simply add the other keywords with relevant data and the information will be added. If -graph is also a keyword, the grpah will be made after the new entry is made', default = False)
+
+parser.add_argument('-day', action='store', dest = 'day_in_cycle',
+                    help='Store the day in the election cycle; default:0', default=0)
+parser.add_argument('-dem', action='store', dest = 'dem',
+                    help='dem candidate"s points; default:0', default=0)
+parser.add_argument('-rep', action='store', dest = 'rep',
+                    help='republican candiate"s points; default:0', default=0)
+parser.add_argument('-ind', action='store', dest = 'ind',
+                    help='independent candiate"s points; default:0', default=0)
+parser.add_argument('-m', action='store', dest = 'month',
+                    help='month of poll', default=today.month)
+parser.add_argument('-d', action='store', dest = 'day',
+                    help='day of poll', default=today.day)
+parser.add_argument('-state', action='store', dest = 'state',
+					help='full name of state(e.g., California)', default = 'California')
+parser.add_argument('-poll', action='store', dest = 'poll',
+					help='name of the polling company', default = 'unknown')
+
+					
+res = parser.parse_args()
+
+print res
+
+if res.add_if_true:
+	day = res.day_in_cycle
+	dem = res.dem
+	rep = res.rep
+	month = res.month
+	dayofmonth = res.day
+	indep = res.ind
+	fullstate = res.state
+	poll = res.poll
+		
+	
+	Hw5.Hw5.enterData(day, dem, rep, month, dayofmonth, len=0, indep=indep, fullstate = state,poll= poll)
+	print "data entered successfully"
+
+	if res.graph_if_true == False:
+		print 'to graph the data of the state you just entered try running the program with the kwrds '
+		print '-graph -state '+ state
+		
+if res.graph_if_true:
+	Hw5.Hw5.q4()
+	
+	
 # Download the latest polling data 
 # from http://electoral-vote.com/evp2010/Senate/ 
 # senate_polls.raw (or .csv) into your Week 8 homework folder.
