@@ -78,6 +78,8 @@ if res.add_if_true:
 		print '-graph -state '+ state
 		
 if res.graph_if_true:
+	print getabrevfromfull('Colorado')
+	
 	Hw5.Hw5.q4()
 	
 	

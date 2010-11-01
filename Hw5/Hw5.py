@@ -37,7 +37,14 @@ def q0():
 	connection.close()
 	
 	
-	
+def getabrevfromfull(statenamefull):
+	connection = sqlite3.connect(path+"/poll.db")
+	cursor = connection.cursor()
+	cmd = 'SELECT statetable.abrev FROM statetable Where statetable.fullname = "%s" ' % statenamefull
+	cursor.execute(cmd)
+	dbinfo = cursor.fetchone()
+	for entry in dbinfo: abreviation = entry
+	return abreviation
 	
 	
 	
