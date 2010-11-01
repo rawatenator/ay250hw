@@ -101,6 +101,7 @@ if res.add:
 	fullstate = res.state.upper()
 	poll = res.poll
 			
+	
 	Hw5.Hw5.enterData(day, dem, rep, month, dayofmonth, len=0, indep=indep, fullstate = fullstate,poll= poll)
 	print "data entered successfully"
 
@@ -109,8 +110,10 @@ if res.add:
 		print '-graph -state '+ state
 		
 if res.graph:
+	#first get the abbreviation of the state given the fullname
 	state_abreviation = Hw5.Hw5.getabrevfromfull(res.state.upper())
 	
+	#graph the poll data given the abbreviation of the state
 	Hw5.Hw5.q6(state_abreviation)
 	
 	
