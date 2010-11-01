@@ -26,4 +26,9 @@ Question3:
 	straightforward to interpret w/comments. 
 
 Question4:
-	I followed the instructions. The files are in this directory under the folder bloomdemo. See the log(log.txt) for proof of the commits. 
+	I followed the instructions. The files are in this directory under the folder bloomdemo. 
+	See the log(log.txt) for proof of the commits. While doing the push to github.com/rawatenator/ay250hw.git, 
+	I noticed that bloomdemo seems empty. After searching around on the net, I believe this is because bloomdemo 
+	is a submodule, which needs to be updated in a different way that I cam not able to figure out. In the case 
+	that the directory is empty, please unzip the bloomdemo.zip file, which contains the same files as the 
+	bloomdemo repository.
